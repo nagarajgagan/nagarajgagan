@@ -1,0 +1,14 @@
+C:\My Personal\Projects\DesignProject\bin\Debug\netcoreapp3.1\DesignProject.exe
+C:\My Personal\Projects\DesignProject\bin\Debug\netcoreapp3.1\DesignProject.deps.json
+C:\My Personal\Projects\DesignProject\bin\Debug\netcoreapp3.1\DesignProject.runtimeconfig.json
+C:\My Personal\Projects\DesignProject\bin\Debug\netcoreapp3.1\DesignProject.runtimeconfig.dev.json
+C:\My Personal\Projects\DesignProject\bin\Debug\netcoreapp3.1\DesignProject.dll
+C:\My Personal\Projects\DesignProject\bin\Debug\netcoreapp3.1\DesignProject.pdb
+C:\My Personal\Projects\DesignProject\obj\Debug\netcoreapp3.1\DesignProject.csproj.AssemblyReference.cache
+C:\My Personal\Projects\DesignProject\obj\Debug\netcoreapp3.1\DesignProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\My Personal\Projects\DesignProject\obj\Debug\netcoreapp3.1\DesignProject.AssemblyInfoInputs.cache
+C:\My Personal\Projects\DesignProject\obj\Debug\netcoreapp3.1\DesignProject.AssemblyInfo.cs
+C:\My Personal\Projects\DesignProject\obj\Debug\netcoreapp3.1\DesignProject.csproj.CoreCompileInputs.cache
+C:\My Personal\Projects\DesignProject\obj\Debug\netcoreapp3.1\DesignProject.dll
+C:\My Personal\Projects\DesignProject\obj\Debug\netcoreapp3.1\DesignProject.pdb
+C:\My Personal\Projects\DesignProject\obj\Debug\netcoreapp3.1\DesignProject.genruntimeconfig.cache
