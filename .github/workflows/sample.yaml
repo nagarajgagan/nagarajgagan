@@ -9,7 +9,7 @@ on:
 jobs:
   Cake:
     name: Cake Build & Deploy
-    runs-on: [self-hosted, Windows, s2p-bi-run]
+    runs-on: [Windows]
     steps:
       - name: Set Branch Variables
         id: setvars
