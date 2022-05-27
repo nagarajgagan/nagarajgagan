@@ -1,0 +1,23 @@
+name: cf-build-deploy
+
+on:
+  push:
+    branches:
+      - test
+  workflow_dispatch: {}
+
+jobs:
+  Cake:
+    name: Cake Build & Deploy
+    runs-on: [self-hosted, Windows, s2p-bi-run]
+    steps:
+      - name: Set Branch Variables
+        id: setvars
+        run: |
+          if( "${{github.ref}}" -eq "refs/heads/test" ){
+             echo "::set-output name=cf_env::Test"
+          }
+      - name: Clone repository
+        uses: actions/checkout@v3
+      - name: call cake.build         
+        run: powershell -File build.ps1 -Script build.cake --env=${{ steps.setvars.outputs.cf_env }}
