@@ -4,20 +4,36 @@ on:
   push:
     branches:
       - test
+      - preview
+      - master
   workflow_dispatch: {}
 
 jobs:
-  Cake:
-    name: Cake Build & Deploy
-    runs-on: [Windows]
+  cfdeploy:
+    name: Build & Deploy
+    runs-on: [self-hosted, Linux, s2p-bi-run]
     steps:
       - name: Set Branch Variables
         id: setvars
         run: |
-          if( "${{github.ref}}" -eq "refs/heads/test" ){
-             echo "::set-output name=cf_env::Test"
-          }
+          if [[ "${{github.ref}}" == "refs/heads/test" ]]; then
+           echo "::set-output name=cf_route_name::sensor-search-Test"
+           echo "::set-output name=cf_env::Test"
+           echo "::set-output name=app_conn::${{secrets.SENSORS_CONNECTIONSTRING_TEST}}"
+          fi
+          if [[ "${{github.ref}}" == "refs/heads/preview" ]]; then
+           echo "::set-output name=cf_route_name::sensor-search-Preview"
+           echo "::set-output name=cf_env::Preview"
+           echo "::set-output name=app_conn::${{secrets.SENSORS_CONNECTIONSTRING_PRV}}"
+          fi
+          if [[ "${{github.ref}}" == "refs/heads/master" ]]; then
+           echo "::set-output name=cf_route_name::sensor-search-Production"
+           echo "::set-output name=cf_env::Production"
+           echo "::set-output name=app_conn::${{secrets.SENSORS_CONNECTIONSTRING_PROD}}"
+          fi
+      - name: Print Variables
+        run: |
+          echo "ROUTE_NAME: ${{ steps.setvars.outputs.cf_route_name }}"
+          echo "CF_SPACE: ${{ steps.setvars.outputs.cf_env }}"
       - name: Clone repository
         uses: actions/checkout@v3
-      - name: call cake.build         
-        run: powershell -File build.ps1 -Script build.cake --env=${{ steps.setvars.outputs.cf_env }}
